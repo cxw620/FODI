@@ -2,25 +2,38 @@
 
 Fast OneDrive Index / FODI，无需服务器的 OneDrive 快速列表程序
 
+华为云函数工作流FunctionGraph  重制版
+
 #### 预览
 
-- [DEMO](https://logi.im/fodi.html)
+- [DEMO(暂未开放)](htttps://www.baidu.com)
 
 #### 功能
 
-- 接近秒速列表
+- 接近秒速列表(取决于这个静态网页放在哪里)
 - 指定展示路径
 - 特定文件夹加密
-- 无需服务器免费部署
+- 无需服务器~~免费部署~~
 - 基本文本、图片、音视频和 Office 三件套预览
 
 #### 缺点
 
-- 功能简单，界面简陋
+- 功能简单，界面还是略简陋
 - 不支持巨硬家的 IE 和 UWP 版 EDGE 浏览器
 - 可能不支持包含千级数量以上文件的文件夹展示
+- 不支持空文件夹
+
+#### TODO
+- [ ] 增加华为云APIG网关鉴权, 减少盗刷或挨DDoS的可能损失
+- [ ] 增加腾讯云函数的支持
+- [ ] 优化CSS
 
 #### 更新
+
+##### 2022.02.08
+
+- 进一步提升速度
+- 重置原Python3.6后端, 适配华为云函数工作流
 
 ##### 2019.12.23
 
@@ -34,4 +47,4 @@ Fast OneDrive Index / FODI，无需服务器的 OneDrive 快速列表程序
 
 #### 安装
 
-- [在 Cloudflare 部署 FODI 后端](https://logi.im/back-end/fodi-on-cloudflare.html)
+- 教程暂未准备
