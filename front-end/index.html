@@ -154,7 +154,7 @@
 		}
 
 		.password-wrapper {
-			display: flex;
+			display: none;
 			align-items: center;
 			margin: 30% auto;
 		}
@@ -183,13 +183,14 @@
 			background: rgb(218, 215, 215);
 		}
 
+
 		pre * {
 			font-family: Courier New;
 		}
 
 		.preview {
 			display: none;
-			font-size: 0.8em;
+			font-size: 1em;
 		}
 
 		.content {
@@ -201,7 +202,7 @@
 
 		.file-name {
 			line-height: 1em;
-			padding: 1em 1em 0;
+			padding: 1em 1em 1em;
 			text-align: center;
 			white-space: nowrap;
 			overflow: hidden;
@@ -459,6 +460,33 @@
 			width: 20%
 		}
 
+		.preview .info {
+			margin: 0.8em auto;
+			text-align: center;
+		}
+
+		::-webkit-scrollbar {
+			width: 6px;
+			height: 6px;
+			/* background-color: aquamarine; */
+		}
+
+		::-webkit-scrollbar-track {
+			box-shadow: inset 0 0 0px rgba(240, 240, 240, 0.5);
+			border-radius: 10px;
+			background-color: rgb(218, 215, 215);
+		}
+
+		::-webkit-scrollbar-thumb {
+			box-shadow: inset 0 0 0px rgba(240, 240, 240, 0.5);
+			border-radius: 10px;
+			background-color: #707070;
+		}
+
+		::-webkit-scrollbar-corner {
+			display: none;
+		}
+
 		@media screen and (max-width: 1000px) {
 			.left {
 				display: none;
@@ -481,7 +509,7 @@
 
 			.file-name {
 				overflow-x: scroll;
-				height: 100%;
+				/* height: 100%; */
 			}
 		}
 
@@ -521,9 +549,9 @@
 				padding: 0.6em 0.3em;
 			}
 
-			.file-name {
+			/* .file-name {
 				padding: 1em 0.3em 0;
-			}
+			} */
 
 			.content {
 				padding: 0 0.3em;
@@ -536,6 +564,41 @@
 			.logo {
 				width: 2em;
 				height: 2em;
+			}
+		}
+
+		@media (prefers-color-scheme: dark) {
+			html {
+				background: #2a2c3e;
+				color: #b4cbd6;
+			}
+
+			.markdown-body {
+				color: #6a6c95
+			}
+
+			.row.file-wrapper:hover {
+				color: aquamarine;
+				cursor: pointer;
+				clip: pointer;
+			}
+
+			::-webkit-scrollbar {
+				background-color: #2a2c3e;
+				color: #3b3c51;
+			}
+
+			::-webkit-scrollbar-track {
+				background-color: #282a3b;
+			}
+
+			::-webkit-scrollbar-corner {
+				background-color: #181a1b;
+			}
+
+			::-webkit-scrollbar-thumb {
+				background-color: #454a4d;
+				color: #2a2c3e
 			}
 		}
 
@@ -1114,7 +1177,7 @@
 							break;
 					}
 					document.querySelector(".file-name").innerHTML = path;
-					// document.querySelector(".btn.download").addEventListener("click", () => (location.href = url));
+					document.querySelector(".btn.download").addEventListener("click", () => (location.href = url));
 					// // 弃用, API不支持
 					// // document.querySelector(".btn.quote").addEventListener("click", (event) => {
 					// // 	previewHandler.copyTextContent(null, window.api.url + "?file=" + encodeURI(path));
@@ -1176,6 +1239,7 @@
 				document.querySelector("#file-list").style.display = "none";
 				document.querySelector(".markdown-body").style.display = "none";
 				document.querySelector(".password").style.display = "none";
+				document.querySelector(".password-wrapper").style.display = "none";
 				document.querySelector(".preview").style.display = "initial";
 			} else if (display === "encrypted") {
 				document.querySelector(".list-header").style.display = "none";
@@ -1183,6 +1247,7 @@
 				document.querySelector(".markdown-body").style.display = "none";
 				document.querySelector(".preview").style.display = "none";
 				document.querySelector(".password").style.display = "initial";
+				document.querySelector(".password-wrapper").style.display = "flex";
 				document.querySelector("#readme").innerHTML = "";
 				let content = document.querySelector(".preview .content");
 				if (content) {
@@ -1210,14 +1275,14 @@
 			}
 			if (window.backFordwardCache.root !== window.backFordwardCache.current) {
 				window.backFordwardCache.backable = true;
-				document.getElementById("arrow-back").style.color = "black";
+				document.getElementById("arrow-back").style.color = "aquamarine";
 			} else {
 				window.backFordwardCache.backable = false;
 				document.getElementById("arrow-back").style.color = "rgb(218, 215, 215)";
 			}
 			if (window.backFordwardCache.deepest !== window.backFordwardCache.current) {
 				window.backFordwardCache.forwardable = true;
-				document.getElementById("arrow-forward").style.color = "black";
+				document.getElementById("arrow-forward").style.color = "aquamarine";
 			} else {
 				window.backFordwardCache.forwardable = false;
 				document.getElementById("arrow-forward").style.color = "rgb(218, 215, 215)";
@@ -1502,14 +1567,11 @@
 				</div>
 				<div class="preview">
 					<div class="info">
-						<div class="file-name"></div>
-						<div class "btn_div">
-							<div class="btn download">下载</div>
-							<!-- <div class="btn quote">引用</div>
-                                <div class="btn share">分享</div> -->
-						</div>
+						预览
 					</div>
 					<div class="content"></div>
+					<div class="file-name"></div>
+					<div class="btn download">下载</div>
 				</div>
 				<div class="password-wrapper">
 					<div class="password">
