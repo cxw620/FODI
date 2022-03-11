@@ -26,6 +26,8 @@ Fast OneDrive Index / FODI，无需服务器的 OneDrive 快速列表程序
 #### TODO
 - [ ] 增加华为云APIG网关鉴权, 减少盗刷或挨DDoS的可能损失
 - [ ] 增加腾讯云函数的支持
+  - [ ]  前端已支持
+  - [ ]  后端pending
 - [ ] 优化CSS
 
 #### 更新
